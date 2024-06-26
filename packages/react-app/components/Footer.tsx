@@ -30,7 +30,7 @@ const navigation = [
   
   export default function Footer() {
     return (
-      <footer className="bg-gypsum mt-auto border-black border-t">
+      <footer className="hidden sm:block bg-gypsum mt-auto border-black border-t">
         <div className="mx-auto max-w-7xl py-6 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
           <div className="flex justify-center space-x-6 md:order-2">
             {navigation.map((item) => (
@@ -41,7 +41,7 @@ const navigation = [
             ))}
           </div>
           <div className="mt-8 md:order-1 md:mt-0">
-            <p className="text-center text-base text-black">&copy; {new Date().getFullYear()} Developed with 🖤 by the Celo DevRel team.</p>
+            <p className="text-center text-base text-black">&copy; {new Date().getFullYear()}</p>
           </div>
         </div>
       </footer>
