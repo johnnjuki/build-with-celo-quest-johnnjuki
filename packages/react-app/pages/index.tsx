@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
-
+import { CopyIcon } from "lucide-react";
 import { getContract, formatEther, createPublicClient, http } from "viem";
 import { celo } from "viem/chains";
 import { stableTokenABI } from "@celo/abis";
+
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner"
 
 const STABLE_TOKEN_ADDRESS = "0x765DE816845861e75A25fCA122bb6898B8B1282a";
 
@@ -61,7 +64,7 @@ export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center">
       {isConnected ? (
-        <Card className="w-full">
+        <Card className="w-full h-screen sm:h-auto">
           <CardHeader className="bg-primary text-primary-foreground px-6 py-4 rounded-t-lg">
             <h2 className="text-2xl font-bold">My Account</h2>
           </CardHeader>
@@ -69,8 +72,25 @@ export default function Home() {
             <div className="bg-muted rounded-lg p-4">
               <div className="space-y-2">
                 <div className="text-sm font-medium">Address</div>
-                <div className="text-sm font-medium text-muted-foreground">
-                  {userAddress}
+                <div className="flex items-center justify-between space-x-3  font-medium text-muted-foreground">
+                  {userAddress.length > 20 ? (
+                    <>
+                      <span>{userAddress.slice(0,12) + "..." + userAddress.slice(-8)}</span>
+                      <CopyIcon
+                      className="hover:cursor-pointer"
+                        onClick={() =>
+                          {
+
+                            navigator.clipboard.writeText(userAddress);
+                            toast("Address copied to clipboard", {icon: "👍"})
+                          }
+
+                        }
+                      />
+                    </>
+                  ) : (
+                    <span>{userAddress}</span>
+                  )}
                 </div>
               </div>
               <Separator className="my-4" />

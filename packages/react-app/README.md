@@ -8,7 +8,7 @@ Celo Composer support React boilerplate template with TailwindCSS. This is a sta
 yarn
 ```
 
-Run `yarn` or `npm install` to install all the required dependencies to run the dApp.
+Run `yarn` to install all the required dependencies to run the dApp.
 
 > React + Tailwind CSS Template does not have any dependency on hardhat and truffle.
 > This starterkit does not include connection of Hardhat/Truffle with ReactJS. It's up to the user to integrate smart contract with ReactJS. This gives user more flexibily over the dApp.
@@ -16,7 +16,7 @@ Run `yarn` or `npm install` to install all the required dependencies to run the 
 -   To start the dApp, run the following command.
 
 ```bash
-yarn react-dev
+yarn dev
 ```
 
 ## Dependencies
