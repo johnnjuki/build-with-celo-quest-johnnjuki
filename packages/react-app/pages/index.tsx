@@ -23,6 +23,7 @@ async function checkCUSDBalance(publicClient: any, address: string) {
     },
   });
 
+  // @ts-ignore
   let balanceInBigNumber = await StableTokenContract.read.balanceOf([address]);
 
   let balanceInWei = balanceInBigNumber.toString();
